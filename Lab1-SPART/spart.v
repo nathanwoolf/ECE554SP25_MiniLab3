@@ -143,5 +143,13 @@ end
 assign txd = tx_shift_reg[0];
 
 // shift reg for rx
-
+always_ff @(posedfe clk, posedge rst) begin
+    if (rst) 
+        rx_shift_reg <= 9'h1FF;
+    else if (init) 
+        rx_shift_reg <= {rxd, 1'b0};       //appedning zero for start signal to remote device
+    else if (rx & shift) begin
+        rx_shift_reg <= {rx_shift_reg[7:0], 1'b1};
+    end
+end
 endmodule
