@@ -82,21 +82,21 @@ always_ff@(posedge clk, posedge rst) begin
 end
 
 //Load the databus with required data based on state
-always * begin
+always @(*) begin
   if(ld_brt)
-    databus = baud_rate[15:8];
+    databus <= baud_rate[15:8];
   if(ld_brb)
-    databus = baud_rate[7:0];
+    databus <= baud_rate[7:0];
   if(ld_dbus)
-    databus = read_data;
+    databus <= read_data;
 end
 
 //Hold tba, rda signal until consumed in state machine
-logic tba_wait, rda_wait, tbr_consume, rda_consume;
+logic tbr_wait, rda_wait, tbr_consume, rda_consume;
 
-alwasy_ff@(posedge clk, posedge rst)begin
+always_ff@(posedge clk, posedge rst)begin
   if(rst)begin
-    tba_wait <= 0;
+    tbr_wait <= 0;
     rda_wait <= 0;
   end
   if(rda)
@@ -109,11 +109,9 @@ alwasy_ff@(posedge clk, posedge rst)begin
     tbr_wait <= 1'b0;
 end
 
-
-
 /////////STATE MACHINE/////////////
-always_ff@(posedge clk, negedge rst_n)begin
-  if(!rst_n)
+always_ff@(posedge clk, posedge rst)begin
+  if(rst)
     state <= IDLE;
   else
     state <= nxt_state;

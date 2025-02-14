@@ -22,13 +22,12 @@ module spart(
     input rst,
     input iocs,
     input iorw,         // 1: spart to driver       0: driver to spart
-    output rda,
-    output tbr,
+    output logic rda,
+    output logic tbr,
     input [1:0] ioaddr,
     inout [7:0] databus,
     output txd,
-    input rxd
-    );
+    input rxd);
 
 //  creating baud rate generator
 
@@ -45,7 +44,8 @@ module spart(
 //  11 -> DB (high) division buffer
 
 // division buffer for baud rate generator from DRIVER
-reg [15:0] div_buf;
+
+logic [15:0] div_buf;
 always_ff @(posedge clk, posedge rst) begin 
     if (rst) begin 
         div_buf <= 16'b0;
@@ -61,14 +61,14 @@ end
 // internal signals for SPART Tx and Rx
 logic [15:0] baud_cnt;
 logic baud_en;
-logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done;
+logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done, shift;
 logic [8:0] tx_shift_reg, rx_shift_reg;
 logic [3:0] bit_cnt;
 
 // baud counter for baud rate generator
 always_ff @(posedge clk, posedge rst) begin
     if (init|baud_en) 
-        baud_cnt <= div_buf
+        baud_cnt <= div_buf;
     else if (tx|rx)
         baud_cnt <= baud_cnt - 1;    
 end
@@ -158,7 +158,7 @@ end
 assign txd = tx_shift_reg[0];
 
 // shift reg for rx
-always_ff @(posedfe clk, posedge rst) begin
+always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         rx_shift_reg <= 9'h1FF;
     else if (rx & shift) begin
@@ -168,7 +168,7 @@ end
 
 assign databus = rx_shift_reg[7:0];
 
-always_ff @(posedge clk, posedfe rst) begin
+always_ff @(posedge clk, posedge rst) begin
     if (rst) begin
         tx_done <= 1'b0;
         rx_done <= 1'b0;
