@@ -61,7 +61,7 @@ end
 // internal signals for SPART Tx and Rx
 logic [15:0] baud_cnt;
 logic baud_en;
-logic tx, rx, init;
+logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done;
 logic [8:0] tx_shift_reg, rx_shift_reg;
 logic [3:0] bit_cnt;
 
@@ -85,8 +85,19 @@ always_ff @(posedge clk, posedge rst) begin
     end
 end 
 
+always_ff @(posedge clk, posedge rst) begin
+    if (rst) begin 
+        rxd_ff <= 1'b1;
+        rxd_dff <= 1'b1;
+    end
+    else begin
+        rxd_ff <= rxd;
+        rxd_dff <= rxd_ff;
+    end
+end
+
 // ************************** STATE MACHINE **************************
-typedef enum reg [2:0] {IDLE, TX, RX_WAIT, RX} state_t;
+typedef enum reg [1:0] {IDLE, TX, RX_WAIT, RX} state_t;
 state_t state, next_state;
 
 always_ff @(posedge clk, posedge rst) begin
@@ -117,14 +128,18 @@ always_comb begin
         end
 
         RX_WAIT : begin
-            if (!rxd) begin
+            if (!rxd_ff) begin
                 init = 1'b1;
                 next_state = RX;
             end
         end
 
         RX : begin
-            
+            if (bit_cnt == 10) begin 
+                rx_done = 1'b1;
+                next_state = IDLE;
+            end
+            else rx = 1'b1;
         end
     endcase
 end
@@ -134,7 +149,7 @@ always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         tx_shift_reg <= 9'h1FF;
     else if (init) 
-        tx_shift_reg <= {databus, 1'b0};       //appedning zero for start signal to remote device
+        tx_shift_reg <= {databus, 1'b0};       //appending zero for start signal to remote device
     else if (tx & shift) begin
         tx_shift_reg <= {tx_shift_reg[7:0], 1'b1};
     end
@@ -146,10 +161,24 @@ assign txd = tx_shift_reg[0];
 always_ff @(posedfe clk, posedge rst) begin
     if (rst) 
         rx_shift_reg <= 9'h1FF;
-    else if (init) 
-        rx_shift_reg <= {rxd, 1'b0};       //appedning zero for start signal to remote device
     else if (rx & shift) begin
-        rx_shift_reg <= {rx_shift_reg[7:0], 1'b1};
+        rx_shift_reg <= {rxd_dff, rx_shift_reg[8:1]};
     end
 end
+
+assign databus = rx_shift_reg[7:0];
+
+always_ff @(posedge clk, posedfe rst) begin
+    if (rst) begin
+        tx_done <= 1'b0;
+        rx_done <= 1'b0;
+    end
+    else if (init) begin 
+        tx_done <= 1'b0;
+        rx_done <= 1'b0;
+    end 
+    else if (tx_done) tbr <= 1'b1;
+    else if (rx_done) rda <= 1'b1;
+end
+
 endmodule
