@@ -41,7 +41,7 @@ module driver(
 //  10 -> DB (low) division buffer
 //  11 -> DB (high) division buffer
 
-typedef enum reg[1:0]{IDLE, RECEIVE, TRANSMIT, BR_CONFIG_TOP, BR_CONFIG_BOTTOM}state_t;
+typedef enum reg[2:0]{IDLE, RECEIVE, TRANSMIT, BR_CONFIG_TOP, BR_CONFIG_BOTTOM}state_t;
 state_t state, nxt_state;
 
 logic [15:0] baud_rate;
