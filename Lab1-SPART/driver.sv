@@ -91,6 +91,26 @@ always * begin
     databus = read_data;
 end
 
+//Hold tba, rda signal until consumed in state machine
+logic tba_wait, rda_wait, tbr_consume, rda_consume;
+
+alwasy_ff@(posedge clk, posedge rst)begin
+  if(rst)begin
+    tba_wait <= 0;
+    rda_wait <= 0;
+  end
+  if(rda)
+    rda_wait <= 1'b1;
+  if(tbr)
+    tbr_wait <= 1'b1;
+  if(rda_consume)
+    rda_wait <= 1'b0;
+  if(tbr_consume)
+    tbr_wait <= 1'b0;
+end
+
+
+
 /////////STATE MACHINE/////////////
 always_ff@(posedge clk, negedge rst_n)begin
   if(!rst_n)
@@ -108,6 +128,8 @@ always_comb begin
   ld_dbus = 0;
   ld_brt = 0;
   ld_brb = 0;
+  rda_consume = 0;
+  tbr_consume = 0;
 
   case(state)
     //If data available, read and store data
@@ -150,10 +172,12 @@ always_comb begin
     ////////default -> IDLE///////
     //select state based on signals
     default: begin
-     if(rda)begin
+     if(rda_wait)begin
+        rda_consume = 1'b1;
        nxt_state = RECEIVE;
      end
-     else if(tbr)begin
+     else if(tbr_wait)begin
+        tbr_consume = 1'b1;
         nxt_state = TRANSMIT;
      end
      else if(br_change)begin
