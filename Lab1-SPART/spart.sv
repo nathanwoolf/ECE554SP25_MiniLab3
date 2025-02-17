@@ -61,14 +61,14 @@ end
 // internal signals for SPART Tx and Rx
 logic [15:0] baud_cnt;
 logic baud_en;
-logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done, shift;
+logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done, tx_rdy, shift;
 logic [8:0] tx_shift_reg, rx_shift_reg;
 logic [3:0] bit_cnt;
 
 // baud counter for baud rate generator
 always_ff @(posedge clk, posedge rst) begin
     if (init|baud_en) 
-        baud_cnt <= div_buf;
+        baud_cnt <= (init) ? (div_buf >> 1) : div_buf;
     else if (tx|rx)
         baud_cnt <= baud_cnt - 1;    
 end
@@ -111,6 +111,7 @@ always_comb begin
     tx = 1'b0; 
     rx = 1'b0;
     init = 1'b0; 
+    tx_rdy = 1'b0;
     next_state = state;
     case (state)
         IDLE : begin
@@ -120,6 +121,7 @@ always_comb begin
             end
             else if (ioaddr == 2'b00 & iocs & iorw) 
                 next_state = RX_WAIT;
+            tx_rdy = 1'b1;
         end
 
         TX : begin
@@ -177,7 +179,7 @@ always_ff @(posedge clk, posedge rst) begin
         tx_done <= 1'b0;
         rx_done <= 1'b0;
     end 
-    else if (tx_done) tbr <= 1'b1;
+    else if (tx_done | tx_rdy) tbr <= 1'b1;
     else if (rx_done) rda <= 1'b1;
 end
 
