@@ -76,6 +76,7 @@ initial begin
 
     @(negedge clk) rx = test_word[0]; 
 
+    $display("TEST: SEND A WORD THROUGH THE COMMUNICATION UNIT");
     // two clk cycles after each shift signal, we'll change what rx is looking at
     for (int i = 1; i < 9; i++) begin 
         @(negedge spart0.baud_en)
@@ -95,6 +96,7 @@ initial begin
                     $display("ERROR: signal recieved was not the same as the signal sent"); 
                     $stop();
                 end 
+                $display("SUCCESS: signal recieved was the same as the signal sent");
             end
         end
     join
