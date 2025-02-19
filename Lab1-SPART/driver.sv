@@ -1,33 +1,14 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    
-// Design Name: 
-// Module Name:    driver 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-module driver(
+module driver (
     input clk,
     input rst,
     input [1:0] br_cfg,
-    output iocs,
-    output iorw,
+    output logic iocs,
+    output logic iorw,
     input rda,
     input tbr,
-    output [1:0] ioaddr,
+    output logic [1:0] ioaddr,
     inout [7:0] databus
-    );
+); 
 
 //  DIP Setting to Baud Rate mapping (comes in through I/O address)
 //  00 -> 4800  ->  650 -> 0x28A
@@ -41,13 +22,10 @@ module driver(
 //  10 -> DB (low) division buffer
 //  11 -> DB (high) division buffer
 
-typedef enum reg[2:0]{IDLE, RECEIVE, TRANSMIT, BR_CONFIG_TOP, BR_CONFIG_BOTTOM}state_t;
-state_t state, nxt_state;
-
 logic [15:0] baud_rate;
 logic[7:0] read_data;
 logic [1:0] br_cfg_prev;
-logic rd_dbus, ld_dbus, ld_brt, ld_brb, br_change;
+logic rd_dbus, ld_dbus, ld_brt, ld_brb, br_change, br_change_wait, br_change_cons;
 
 //Detect change in baud rate, update spart baud rate if change
 always_ff@(posedge clk, posedge rst)begin
@@ -57,7 +35,16 @@ always_ff@(posedge clk, posedge rst)begin
     br_cfg_prev <= br_cfg;
 end
 
-assign br_change = (br_cfg == br_cfg_prev) ? 1'b0 : 1'b1;
+assign br_change = (br_cfg !== br_cfg_prev) ? 1'b1 : 1'b0;
+
+always_ff@(posedge clk, posedge rst)begin
+    if(rst)
+        br_change_wait <= 1'b0;
+    else if (br_change)
+        br_change_wait <= 1'b1;
+    else if (br_change_cons)
+        br_change_wait <= 1'b0;
+end
 
 //Select value stored in spart divisor buffer based on baud rate
 always_ff@(posedge clk, posedge rst)begin
@@ -65,10 +52,10 @@ always_ff@(posedge clk, posedge rst)begin
     baud_rate <= '0;
   else begin
     case(br_cfg)
-      2'b00: baud_rate <= 16'h028A;
-      2'b01: baud_rate <= 16'h0145;
-      2'b10: baud_rate <= 16'h00A2;
-      2'b11: baud_rate <= 16'h0050;
+      2'b00: baud_rate <= 16'h27A3;
+      2'b01: baud_rate <= 16'h1458;
+      2'b10: baud_rate <= 16'h0A2C;
+      2'b11: baud_rate <= 16'h0516;
     endcase
   end
 end
@@ -81,108 +68,84 @@ always_ff@(posedge clk, posedge rst) begin
     read_data <= databus;
 end
 
-//Load the databus with required data based on state
-always @(*) begin
-  if(ld_brt)
-    databus <= baud_rate[15:8];
-  if(ld_brb)
-    databus <= baud_rate[7:0];
-  if(ld_dbus)
-    databus <= read_data;
-end
+// ************************** STATE MACHINE **************************
+typedef enum reg [2:0] {DUMMY, DB_LOW, DB_HIGH, CMD_RX, RX_WAIT, CMD_TX, TX_WAIT} state_t;
+state_t state, nxt_state;  
 
-//Hold tba, rda signal until consumed in state machine
-logic tbr_wait, rda_wait, tbr_consume, rda_consume;
-
-always_ff@(posedge clk, posedge rst)begin
-  if(rst)begin
-    tbr_wait <= 0;
-    rda_wait <= 0;
-  end
-  if(rda)
-    rda_wait <= 1'b1;
-  if(tbr)
-    tbr_wait <= 1'b1;
-  if(rda_consume)
-    rda_wait <= 1'b0;
-  if(tbr_consume)
-    tbr_wait <= 1'b0;
-end
-
-/////////STATE MACHINE/////////////
-always_ff@(posedge clk, posedge rst)begin
-  if(rst)
-    state <= IDLE;
-  else
-    state <= nxt_state;
+always_ff @(posedge clk, posedge rst) begin
+    if (rst) 
+        state <= DUMMY;
+    else
+        state <= nxt_state;
 end
 
 always_comb begin
-  nxt_state = state;
-  iocs = 0;
-  iorw = 0;
-  ioaddr = 0;
-  rd_dbus = 0;
-  ld_dbus = 0;
-  ld_brt = 0;
-  ld_brb = 0;
-  rda_consume = 0;
-  tbr_consume = 0;
+    iocs = 1'b0; 
+    iorw = 1'b0;
+    ioaddr = 2'b00;
+    ld_brt = 1'b0;
+    ld_brb = 1'b0; 
+    rd_dbus = 0;
+    ld_dbus = 0;
+    br_change_cons = 1'b0;
+    nxt_state = state; 
+    
+    case (state) 
+        DUMMY: begin 
+            nxt_state = DB_HIGH;
+        end
 
-  case(state)
-    //If data available, read and store data
-    RECEIVE: begin
-      rd_dbus = 1'b1;
-      iocs = 1'b1;
-      ioaddr = 2'b00;
-      iorw = 1'b1;
-      if(!rda)
-        nxt_state = IDLE;
-    end
-    
-    //If transmit ready, send stored bit
-    TRANSMIT: begin
-      ld_dbus = 1'b1;
-      iocs = 1'b1;
-      ioaddr = 2'b00;
-      iorw = 1'b0;
-      if(!tbr)
-        nxt_state = IDLE;
-    end
+        DB_HIGH : begin
+            ld_brt = 1'b1;
+            iocs = 1'b1;
+            ioaddr = 2'b11;
+            iorw = 1'b0;
+            nxt_state = DB_LOW;
+        end
 
-    //If baud rate changed, send high bits then low bits
-    BR_CONFIG_TOP:begin
-      ld_brt = 1'b1;
-      iocs = 1'b1;
-      ioaddr = 2'b11;
-      iorw = 1'b0;
-      nxt_state = BR_CONFIG_BOTTOM;
-    end
-    
-    BR_CONFIG_BOTTOM:begin
-      ld_brb = 1'b1;
-      iocs = 1'b1;
-      ioaddr = 2'b10;
-      iorw = 1'b0;
-      nxt_state = IDLE;
-    end
-    
-    ////////default -> IDLE///////
-    //select state based on signals
-    default: begin
-     if(rda_wait)begin
-        rda_consume = 1'b1;
-       nxt_state = RECEIVE;
-     end
-     else if(tbr_wait)begin
-        tbr_consume = 1'b1;
-        nxt_state = TRANSMIT;
-     end
-     else if(br_change)begin
-        nxt_state = BR_CONFIG_TOP;
-     end
-     end
-  endcase
+        DB_LOW : begin
+            ld_brb = 1'b1;
+            iocs = 1'b1;
+            ioaddr = 2'b10;
+            iorw = 1'b0;
+            nxt_state = RX_WAIT;
+        end
+
+        RX_WAIT : begin
+           iocs = 1'b1;
+           ioaddr = 2'b00;
+           iorw = 1'b1;
+           if (rda) begin 
+                rd_dbus = 1'b1;
+                nxt_state = CMD_TX;
+            end
+            else if (br_change_wait) begin
+                br_change_cons = 1'b1;
+                nxt_state = DB_HIGH;
+            end
+        end
+
+        CMD_TX : begin
+            if (tbr) begin
+                iocs = 1'b1;
+                ioaddr = 2'b00;
+                iorw = 1'b0;
+                nxt_state = TX_WAIT;
+            end
+        end
+
+        TX_WAIT : begin
+            if (tbr) begin
+                ld_dbus = 1'b1; 
+                nxt_state = RX_WAIT;
+            end
+        end
+    endcase
 end
+
+assign databus =  (ld_brt) ? baud_rate[15:8]  : 
+                  (ld_brb) ? baud_rate[7:0]   :
+                  (ld_dbus) ? read_data : 
+                  8'hzz;
 
 endmodule

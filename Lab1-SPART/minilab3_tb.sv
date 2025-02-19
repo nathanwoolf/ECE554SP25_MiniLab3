@@ -1,20 +1,37 @@
 module minilab3_tb ();
 
-wire    clk, 
+logic    clk, 
         rst;
 // singals tying spart and driver together 
-wire    iocs, 
+logic   iocs, 
         iorw,
         rda,
-        tbr;
-wire [1:0] ioaddr, br_cfg;
-wire [7:0] databus; 
+        tbr, 
+        remote_rda, 
+        remote_tbr;
+logic [1:0] ioaddr, br_cfg;
+wire [7:0] databus, remote_databus; 
 
 // I/O from spart
-wire txd, rxd;
+logic txd, rxd;
 
 //tb internal singals 
-wire [9:0] test_word;
+logic [9:0] shift_reg;
+logic [7:0] test_word;
+
+logic remote_iocs;
+
+logic ld_br, remote_iorw;
+assign ld_br = (ioaddr === 2'b00) ? 1'b0 : 1'b1;
+
+// always @(*) begin 
+//     remote_iorw <= (ld_br) ? iorw : ~iorw;
+// end
+
+assign remote_databus = (ld_br) ? databus : 
+                        (remote_iocs) ? test_word : 
+                        8'hzz;
+
 
 spart spart0(   .clk(clk),
                 .rst(rst),
@@ -26,6 +43,18 @@ spart spart0(   .clk(clk),
                 .databus(databus),
                 .txd(txd),
                 .rxd(rxd)
+            );
+
+spart spart1(   .clk(clk),
+                .rst(rst),
+                .iocs(iocs),
+                .iorw(remote_iorw),
+                .rda(remote_rda),
+                .tbr(remote_tbr),
+                .ioaddr(ioaddr),
+                .databus(remote_databus),
+                .txd(rxd),
+                .rxd(txd)
             );
 
 // Instantiate your driver here
@@ -43,9 +72,11 @@ driver driver0( .clk(clk),
 initial begin 
     clk = 0; 
     rst = 1; 
-    br_config = 2'b00;      //default to the lowest baud rate
+    br_cfg = 2'b00;      //default to the lowest baud rate
 
     @(negedge clk) rst = 0;
+
+    remote_iorw = iorw;
 
     ////////////////////////////////////////////////////////////////////////////////
     // TEST: CHANGE BAUD RATE DIP SETTING -> VERIFY THAT WAS READ OVER TO SPART UNIT
@@ -53,15 +84,16 @@ initial begin
     $display("TEST: CHANGE BAUD RATE DIP SETTING -> VERIFY THAT WAS READ OVER TO SPART UNIT");
     // first check was the original baud rate sent to the spart unit   
     repeat (5) @(posedge clk);
-    if (spart0.div_buf !== 16'h028A) begin 
+    if (spart0.div_buf !== 16'h145a) begin 
         $display("ERROR: baud rate was not set to 4800");
         $stop();
     end else
-        $dsiplay("SUCCESS: baud rate was set to 4800 in spart unit");
+        $display("SUCCESS: baud rate was set to 4800 in spart unit");
 
     // now change the baud rate to 9600
-    @(negedge clk) br_config = 2'b01;
-    if (spart0.div_buf !== 16'h0145) begin 
+    @(negedge clk) br_cfg = 2'b01;
+    repeat (5) @(posedge clk);
+    if (spart0.div_buf !== 16'h0a2c) begin 
         $display("ERROR: baud rate was not set to 9600");
         $stop();
     end else 
@@ -72,20 +104,16 @@ initial begin
     ///////////////////////////////////////////////////
     // TEST: SEND A WORD THROUGH THE COMMUNICATION UNIT
     ///////////////////////////////////////////////////
-    test_word = {1'b1, 8'hA5, 1'b0};            // ** we have to build in start and stop bits **
-
-    @(negedge clk) rx = test_word[0]; 
-
-    $display("TEST: SEND A WORD THROUGH THE COMMUNICATION UNIT");
-    // two clk cycles after each shift signal, we'll change what rx is looking at
-    for (int i = 1; i < 9; i++) begin 
-        @(negedge spart0.baud_en)
-        rx = test_word[i];
+    @(posedge clk) begin
+        remote_iocs = 1'b1;
+        remote_iorw = ~iorw;
+        test_word = 8'haa;
     end
+    @(posedge clk) remote_iocs = 1'b0;
 
     fork
         begin : init_rx_to
-            repeat (70000) @(posedge clk);
+            repeat (25000) @(posedge clk);
             $display("ERROR: timeout on wait for rda to go high");
             $stop();
         end : init_rx_to
@@ -101,6 +129,7 @@ initial begin
         end
     join
     
+    $stop();
 end
 
 

@@ -1,0 +1,1141 @@
+# Compile of driver.sv was successful.
+# Compile of minilab3_tb.sv was successful.
+# Compile of spart.sv was successful.
+# 3 compiles, 0 failed with no errors.
+vsim work.minilab3_tb -voptargs=+acc
+# vsim work.minilab3_tb -voptargs="+acc" 
+# Start time: 14:55:53 on Feb 18,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+add wave -position insertpoint sim:/minilab3_tb/spart0/*
+add wave -position insertpoint sim:/minilab3_tb/spart1/*
+add wave -position insertpoint sim:/minilab3_tb/driver0/*
+run -all
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+# Compile of spart.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv failed with 1 errors.
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv failed with 1 errors.
+# Compile of driver.sv was successful.
+# Compile of minilab3_tb.sv was successful.
+# Compile of spart.sv was successful.
+# 3 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+# Compile of spart.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of driver.sv was successful.
+# Compile of minilab3_tb.sv was successful.
+# Compile of spart.sv was successful.
+# 3 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(104)
+#    Time: 960415 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 104
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(104)
+#    Time: 1060415 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 104
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(104)
+#    Time: 1460415 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 104
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(104)
+#    Time: 1460415 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 104
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(104)
+#    Time: 1460425 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 104
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hba
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(114)
+#    Time: 1014875 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 114
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hba
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(114)
+#    Time: 1014875 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 114
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hba
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(114)
+#    Time: 1014875 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 114
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(121)
+#    Time: 1014875 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 121
+run
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(122)
+#    Time: 1014915 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 122
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(124)
+#    Time: 1014895 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 124
+# Causality operation skipped due to absence of debug database file
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(128)
+#    Time: 1014895 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 128
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(128)
+#    Time: 1014895 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 128
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(130)
+#    Time: 1014895 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 130
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv failed with 1 errors.
+# Compile of spart.sv failed with 1 errors.
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(113)
+#    Time: 1614285 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 113
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv failed with 1 errors.
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+# Compile of spart.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hXX
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(121)
+#    Time: 1014895 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 121
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of driver.sv was successful.
+# Compile of minilab3_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+# Compile of minilab3_tb.sv was successful.
+# Compile of spart.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(154)
+#    Time: 2029745 ns  Iteration: 3  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 154
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+run -all
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(154)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 154
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(139)
+#    Time: 1764895 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_tx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 139
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+# Compile of spart.sv failed with 1 errors.
+# Compile of driver.sv was successful.
+# Compile of spart.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+run -continue
+# SUCCESS: signal recieved was the same as the signal sent
+# Compile of minilab3_tb.sv failed with 1 errors.
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(147)
+#    Time: 2029745 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 147
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# SUCCESS: signal recieved was the same as the signal sent
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# SUCCESS: signal recieved was the same as the signal sent
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+# Compile of minilab3_tb.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# SUCCESS: signal recieved was the same as the signal sent
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(113)
+#    Time: 1614275 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 113
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# ERROR: timeout on wait for rda to go high
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(113)
+#    Time: 1614275 ns  Iteration: 1  Instance: /minilab3_tb
+# Break in NamedBeginStat init_rx_to at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 113
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# SUCCESS: signal recieved was the same as the signal sent
+# Compile of spart.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h74, Received: 8'hzz
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: signal recieved was not the same as the signal sent
+# 	Expected: 8'h70, Received: 8'hzz
+# ** Note: $stop    : I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(178)
+#    Time: 8727615 ns  Iteration: 2  Instance: /minilab3_tb
+# Break in Module minilab3_tb at I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv line 178
+# Compile of driver.sv failed with 1 errors.
+# Compile of spart.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of driver.sv was successful.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast__1)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "spart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "driver(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.minilab3_tb(fast)
+# Loading work.spart(fast)
+# Loading work.spart(fast__1)
+# Loading work.driver(fast)
+run -all
+# SUCCESS: signal recieved was the same as the signal sent
+# ERROR: timeout on wait for remote rda to go high
+# End time: 18:45:15 on Feb 18,2025, Elapsed time: 3:49:22
+# Errors: 0, Warnings: 2

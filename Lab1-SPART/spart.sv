@@ -67,13 +67,17 @@ logic [3:0] bit_cnt;
 
 // baud counter for baud rate generator
 always_ff @(posedge clk, posedge rst) begin
-    if (init|baud_en) 
+    if (rst) 
+        baud_cnt <= '0;
+    else if (rx & init|baud_en) 
         baud_cnt <= (init) ? (div_buf >> 1) : div_buf;
+    else if (tx & init|baud_en)
+        baud_cnt <= div_buf; 
     else if (tx|rx)
         baud_cnt <= baud_cnt - 1;    
 end
 
-assign baud_en = (baud_cnt === 0) ? 1 : 0;
+assign baud_en = (baud_cnt == 0) ? 1 : 0;
 
 // bit count register for Tx and Rx
 always_ff @(posedge clk, posedge rst) begin
@@ -100,6 +104,8 @@ end
 typedef enum reg [1:0] {IDLE, TX, RX_WAIT, RX} state_t;
 state_t state, next_state;
 
+logic br_change;
+
 always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         state <= IDLE;
@@ -112,6 +118,9 @@ always_comb begin
     rx = 1'b0;
     init = 1'b0; 
     tx_rdy = 1'b0;
+    rx_done = 1'b0; 
+    tx_done = 1'b0;
+    br_change = 1'b1;
     next_state = state;
     case (state)
         IDLE : begin
@@ -125,7 +134,11 @@ always_comb begin
         end
 
         TX : begin
-            if (bit_cnt == 10) next_state = IDLE;
+            if (ioaddr !== 2'b00) begin 
+                br_change = 1'b1;
+                next_state = IDLE;
+            end
+            else if (bit_cnt == 10) next_state = IDLE;
             else tx = 1'b1;
         end
 
@@ -134,6 +147,7 @@ always_comb begin
                 init = 1'b1;
                 next_state = RX;
             end
+            else if (ioaddr !== 2'b00) next_state = IDLE;
         end
 
         RX : begin
@@ -150,10 +164,12 @@ end
 always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         tx_shift_reg <= 9'h1FF;
+    else if (br_change) 
+        tx_shift_reg <= 9'h1FF;
     else if (init) 
         tx_shift_reg <= {databus, 1'b0};       //appending zero for start signal to remote device
-    else if (tx & shift) begin
-        tx_shift_reg <= {tx_shift_reg[7:0], 1'b1};
+    else if (tx & baud_en) begin
+        tx_shift_reg <= {1'b1, tx_shift_reg[8:1]};
     end
 end
 
@@ -163,22 +179,18 @@ assign txd = tx_shift_reg[0];
 always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         rx_shift_reg <= 9'h1FF;
-    else if (rx & shift) begin
+    else if (rx & baud_en) begin
         rx_shift_reg <= {rxd_dff, rx_shift_reg[8:1]};
     end
 end
 
-assign databus = rx_shift_reg[7:0];
+assign databus = (rx_done) ? rx_shift_reg[7:0] : 8'hzz;
 
 always_ff @(posedge clk, posedge rst) begin
-    if (rst) begin
-        tx_done <= 1'b0;
-        rx_done <= 1'b0;
+    if (rst) begin 
+        tbr <= 1'b0; 
+        rda <= 1'b0;
     end
-    else if (init) begin 
-        tx_done <= 1'b0;
-        rx_done <= 1'b0;
-    end 
     else if (tx_done | tx_rdy) tbr <= 1'b1;
     else if (rx_done) rda <= 1'b1;
 end

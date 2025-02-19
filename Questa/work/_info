@@ -1,0 +1,216 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11f vlog 2023.3 2023.07, Jul 17 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/23.1std
+T_opt
+!s110 1739924954
+V_Y3NaBX3lLWhje>Zoa[J^3
+04 11 4 work minilab3_tb fast 0
+=62-4cd71793b85b-67b525d9-2a4-1e54
+R1
+!s12b OEM100
+!s124 OEM10U4 
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2023.3;77
+vdriver
+2I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/driver.sv
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1739924951
+!i10b 1
+!s100 Y0EYn^^l8kfo:I<Xl>JII0
+IZZ?mC`hoOVeRAXSkFd95i1
+S1
+Z4 dI:/ece554/ECE554SP25_MiniLab3/Questa
+w1739924948
+8I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/driver.sv
+FI:/ece554/ECE554SP25_MiniLab3/Lab1_v2/driver.sv
+!i122 72
+L0 1 126
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2023.3;77
+r1
+!s85 0
+31
+!s108 1739924951.000000
+!s107 I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/driver.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/driver.sv|
+!i113 0
+Z7 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vminilab3_tb
+2I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv
+R3
+!s110 1739923358
+!i10b 1
+!s100 V<Nh3O8<gn12[a[YDRb;Y0
+Igj4S^e4]B:KG600:]8<l91
+S1
+R4
+w1739923355
+8I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv
+FI:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv
+!i122 66
+L0 1 192
+R5
+R6
+r1
+!s85 0
+31
+!s108 1739923358.000000
+!s107 I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv|
+!i113 0
+R7
+R2
+vspart
+2I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/spart.sv
+R3
+!s110 1739924940
+!i10b 1
+!s100 @B9U3>G3TIl@J9YMH38MV1
+I17ggMlI`SdVP=Ok:zbdc_0
+S1
+R4
+w1739924926
+8I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/spart.sv
+FI:/ece554/ECE554SP25_MiniLab3/Lab1_v2/spart.sv
+!i122 71
+L0 20 165
+R5
+R6
+r1
+!s85 0
+31
+!s108 1739924940.000000
+!s107 I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/spart.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|I:/ece554/ECE554SP25_MiniLab3/Lab1_v2/spart.sv|
+!i113 0
+R7
+R2
