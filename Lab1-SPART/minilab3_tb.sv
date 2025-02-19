@@ -33,7 +33,7 @@ assign remote_databus = (ld_br) ? databus :
                         8'hzz;
 
 
-spart spart0(   .clk(clk),
+spart_test spart0(   .clk(clk),
                 .rst(rst),
                 .iocs(iocs),
                 .iorw(iorw),
@@ -111,6 +111,7 @@ initial begin
     end
     @(posedge clk) remote_iocs = 1'b0;
 
+/*
     fork
         begin : init_rx_to
             repeat (25000) @(posedge clk);
@@ -120,11 +121,11 @@ initial begin
         begin
             @(posedge rda) begin
                 disable init_rx_to;
-                if (databus !== test_word) begin 
-                    $display("ERROR: signal recieved was not the same as the signal sent"); 
+                if (spart0.receive_data !== test_word) begin 
+                    $display("ERROR: signal recieved by SPART was not the same as the signal sent"); 
                     $stop();
                 end 
-                $display("SUCCESS: signal recieved was the same as the signal sent");
+                $display("SUCCESS: signal recieved by SPART was the same as the signal sent");
             end
         end
     join

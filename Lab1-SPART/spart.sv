@@ -46,6 +46,9 @@ module spart(
 // division buffer for baud rate generator from DRIVER
 
 logic [15:0] div_buf;
+logic rx_clr, start_transmit, ld_dbus, tx_done, tx_rst;
+logic [7:0] transmit_data, receive_data;
+
 always_ff @(posedge clk, posedge rst) begin 
     if (rst) begin 
         div_buf <= 16'b0;
@@ -58,12 +61,18 @@ always_ff @(posedge clk, posedge rst) begin
     end
 end
 
-// internal signals for SPART Tx and Rx
-logic [15:0] baud_cnt;
-logic baud_en;
-logic tx, rx, init, rxd_ff, rxd_dff, tx_done, rx_done, tx_rdy, shift;
-logic [8:0] tx_shift_reg, rx_shift_reg;
-logic [3:0] bit_cnt;
+UART data_transfer(
+	.clk(clk),
+	.rst_n(!rst),
+	.RX(rxd),
+	.TX(txd),
+	.rx_rdy(rda),
+	.clr_rx_rdy(rx_clr),
+	.rx_data(receive_data),
+	.trmt(start_transmit),
+	.tx_data(transmit_data),
+	.tx_done(tx_done),
+	.baud_rate(div_buf));
 
 // baud counter for baud rate generator
 always_ff @(posedge clk, posedge rst) begin
@@ -195,4 +204,6 @@ always_ff @(posedge clk, posedge rst) begin
     else if (rx_done) rda <= 1'b1;
 end
 
+assign databus = (ld_dbus) ? receive_data : 8'hz;
+assign tbr = tx_done | tx_rst;
 endmodule

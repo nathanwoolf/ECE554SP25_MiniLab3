@@ -29,10 +29,12 @@ logic rd_dbus, ld_dbus, ld_brt, ld_brb, br_change, br_change_wait, br_change_con
 
 //Detect change in baud rate, update spart baud rate if change
 always_ff@(posedge clk, posedge rst)begin
-  if(rst)
+  if(rst) begin
     br_cfg_prev <= '0;
-  else
+  end
+  else begin
     br_cfg_prev <= br_cfg;
+  end
 end
 
 assign br_change = (br_cfg !== br_cfg_prev) ? 1'b1 : 1'b0;
