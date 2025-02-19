@@ -1,0 +1,9 @@
+# Setting Baud Rates
+# TEST: Sending word 8'h74
+# SUCCESS: signal recieved was the same as the signal given
+# SUCCESS: signal transmitted was the same as the signal given
+# TEST: Sending word 8'h47
+# SUCCESS: signal recieved was the same as the signal given
+# SUCCESS: signal transmitted was the same as the signal given
+# ** Note: $stop    : I:/ECE554/ECE554SP25_MiniLab3/Lab1_v2/minilab3_tb.sv(216)
+#    Time: 3866445 ns  Iteration: 4  Instance: /minilab3_tb

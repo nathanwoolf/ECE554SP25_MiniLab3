@@ -74,7 +74,7 @@ always_comb begin
             if (br_cfg !== br_cfg_prev) begin 
                 nxt_state = PROG_LOW;
             end
-            else if (tbr|rda) begin 
+            else if (rda) begin 
                 iocs = 1'b1;
                 iorw = 1'b1;
                 nxt_state = CMD_RX;
@@ -100,7 +100,7 @@ always_comb begin
             ioaddr = 2'b11;
             iorw = 1'b0;
             read_data = baud_rate[15:8];
-            nxt_state = CMD_RX;
+            nxt_state = IDLE;
         end
 
         CMD_RX: begin 
@@ -108,7 +108,7 @@ always_comb begin
            ioaddr = 2'b00;
            iorw = 1'b1;
            read_data = databus;
-           if (!rda & tbr) begin 
+           if (rda) begin 
                 rd_dbus = 1'b1;
                 iorw = 1'b0;
                 nxt_state = CMD_TX;
@@ -119,7 +119,10 @@ always_comb begin
             iocs = 1'b1;
             ioaddr = 2'b00;
             iorw = 1'b0;
-            if (!tbr) nxt_state = IDLE;
+            if (tbr) begin
+		iocs = 1'b0;
+		nxt_state = IDLE;
+	  end
         end
     endcase
 end

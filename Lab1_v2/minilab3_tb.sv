@@ -59,6 +59,7 @@ driver driver0( .clk(clk),
             );
 
 initial begin 
+    $display("Setting Baud Rates");
     clk = 0; 
     br_cfg = 2'b00;      //default to the lowest baud rate
 
@@ -86,13 +87,14 @@ initial begin
     force databus_r = 8'h27;
     @(negedge clk) begin 
         iocs_r = 1; 
-        iorw_r = 0;
     end 
     @(posedge clk) begin 
         release databus_r;
         iocs_r = 0;
+	iorw_r = 1;
     end
 
+    $display("TEST: Sending word 8'h74");
     test_word = 8'h74;
     shift_reg = {1'b1, test_word, 1'b0};
 
@@ -115,12 +117,12 @@ initial begin
         begin
             @(posedge rda) begin
                 disable init_rx_to;
-                if (databus !== 8'h74) begin 
-                    $display("ERROR: signal recieved was not the same as the signal sent"); 
-                    $display("\tExpected: 8'h74, Received: 8'h%h", databus);
+                if (spart0.rx_shift_reg[7:0] !== 8'h74) begin 
+                    $display("ERROR: signal recieved was not the same as the signal given"); 
+                    $display("\tExpected: 8'h74, Received: 8'h%h", spart0.rx_shift_reg[7:0]);
                     $stop();
                 end 
-                $display("SUCCESS: signal recieved was the same as the signal sent");
+                $display("SUCCESS: signal recieved was the same as the signal given");
             end
         end
     join 
@@ -132,25 +134,29 @@ initial begin
         iocs_r = 1;
     end
 
+
     fork
         begin : init_tx_to
-            repeat (75000) @(posedge clk);
+            repeat (150000) @(posedge clk);
             $display("ERROR: timeout on wait for remote rda to go high");
-            //$stop();
+            $stop();
         end : init_tx_to
         begin
-            @(posedge rda_r) begin
+            @(posedge spart1.data_rdy) begin
                 disable init_tx_to;
-                if (databus_r !== 8'h74) begin 
-                    $display("ERROR: signal recieved was not the same as the signal sent"); 
-                    $display("\tExpected: 8'h74, Received: 8'h%h", databus);
+                if (spart1.rx_shift_reg[7:0] !== 8'h74) begin 
+                    $display("ERROR: signal transmitted was not the same as the signal given"); 
+                    $display("\tExpected: 8'h74, Received: 8'h%h",spart1.rx_shift_reg[7:0]);
+		    $stop();
                 end 
-                $display("SUCCESS: signal recieved was the same as the signal sent");
+                $display("SUCCESS: signal transmitted was the same as the signal given");
             end
         end
     join 
 
-    test_word = 8'h70;
+    repeat (1000) @(posedge clk);
+    $display("TEST: Sending word 8'h47");
+    test_word = 8'h47;
     shift_reg = {1'b1, test_word, 1'b0};
 
     rxd = shift_reg[0];
@@ -160,29 +166,53 @@ initial begin
             rxd = shift_reg[i];
         end
     end
-
     @(posedge spart0.baud_en) rxd = shift_reg[9];
 
     fork
-        begin : to
+        begin : init_rx_to2
             repeat (75000) @(posedge clk);
             $display("ERROR: timeout on wait for rda to go high");
             $stop();
-        end : to
+        end : init_rx_to2
         begin
             @(posedge rda) begin
-                disable to;
-                if (databus !== 8'h70) begin 
-                    $display("ERROR: signal recieved was not the same as the signal sent"); 
-                    $display("\tExpected: 8'h70, Received: 8'h%h", databus);
+                disable init_rx_to2;
+                if (spart0.rx_shift_reg[7:0] !== 8'h47) begin 
+                    $display("ERROR: signal recieved was not the same as the signal given"); 
+                    $display("\tExpected: 8'h47, Received: 8'h%h", spart0.rx_shift_reg[7:0]);
                     $stop();
                 end 
-                $display("SUCCESS: signal recieved was the same as the signal sent");
+                $display("SUCCESS: signal recieved was the same as the signal given");
             end
         end
     join 
+    
 
-    //repeat (20000) @(posedge clk);
+    //attempting to get remote spart to go into rx state
+    @(negedge clk) begin 
+        ioaddr_r = 2'b00;
+        iocs_r = 1;
+    end
+
+
+    fork
+        begin : init_tx_to2
+            repeat (150000) @(posedge clk);
+            $display("ERROR: timeout on wait for remote rda to go high");
+            $stop();
+        end : init_tx_to2
+        begin
+            @(posedge spart1.data_rdy) begin
+                disable init_tx_to2;
+                if (spart1.rx_shift_reg[7:0] !== 8'h47) begin 
+                    $display("ERROR: signal transmitted was not the same as the signal given"); 
+                    $display("\tExpected: 8'h47, Received: 8'h%h",spart1.rx_shift_reg[7:0]);
+		    $stop();
+                end 
+                $display("SUCCESS: signal transmitted was the same as the signal given");
+            end
+        end
+    join 
     $stop();
 end
 

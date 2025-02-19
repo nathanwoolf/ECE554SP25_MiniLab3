@@ -50,13 +50,13 @@ logic[7:0] tx_data;
 
 // shift registers signals
 logic [8:0] tx_shift_reg, rx_shift_reg;
-logic tx, rx, rxd_ff, rxd_dff, start, data_rdy, tx_init;
-logic tx_stp; 
+logic tx, rx, rxd_ff, rxd_dff, start, data_rdy, rx_init, tx_init;
+logic tx_stp, clr_data_ready; 
 
 // baud counter for baud rate generator
 always_ff @(posedge clk) begin
     if (start) 
-        baud_cnt <= (tx_init) ? (div_buf >> 1) : div_buf;
+        baud_cnt <= (rx_init) ? (div_buf >> 1) : div_buf;
     else if (baud_en)
         baud_cnt <= div_buf; 
     else if (tx | rx)
@@ -103,8 +103,8 @@ end
 always_ff @(posedge clk, posedge rst) begin
     if (rst) 
         tx_shift_reg <= 9'h1FF;
-    else if (tx & start) 
-        tx_shift_reg <= {databus, 1'b0};       //appending zero for start signal to remote device
+    else if (tx_init) 
+        tx_shift_reg <= {1'b1, databus, 1'b0};       //appending zero for start signal to remote device
     else if (tx & baud_en) begin
         tx_shift_reg <= {1'b1, tx_shift_reg[8:1]};
     end
@@ -115,12 +115,17 @@ assign txd = tx_shift_reg[0];
 always_ff @(posedge clk, posedge rst) begin
     if (rst) begin 
         rda <= 1'b0; 
-        tbr <= 1'b0;
+        tbr <= 1'b1;
     end 
-    else begin 
-        rda <= data_rdy; 
-        tbr <= tx_stp; 
-    end
+    else if(data_rdy) 
+        rda <= 1'b1;
+    else if (clr_data_ready)
+	rda <= 1'b0;
+
+    if (tx_stp) 
+	tbr <= 1'b1;
+    else if (tx)
+	tbr <= 1'b0;
 end
 
 // ************************** STATE MACHINE **************************
@@ -138,44 +143,46 @@ always_comb begin
     tx = 1'b0; 
     rx = 1'b0;
     start = 1'b0;
+    rx_init = 1'b0;
     tx_init = 1'b0;
     data_rdy = 1'b0;   
     tx_stp = 1'b0; 
+    clr_data_ready = 1'b0;
     next_state = state;
 
     case(state)
         IDLE: begin 
-            if (~rxd_ff & iocs) begin 
+            if (~rxd_ff) begin 
+		rx_init = 1'b1;
                 start = 1'b1;
                 next_state = RX;
             end
-            else if (tbr & iocs) begin 
-                tx = 1'b1;
-                tx_init = 1'b1;
+            else if (!iorw & iocs& !ioaddr[1]) begin 
+		tx_init = 1'b1;
                 start = 1'b1;
                 next_state = TX;
             end
         end
 
         TX: begin 
-            tx = 1'b1;
-            if (bit_cnt == 10) begin 
-                tx_stp = 1'b1; 
-                next_state = IDLE;
+	    clr_data_ready = 1'b1;
+            if (bit_cnt != 4'd9) begin 
+                tx = 1'b1;
             end
+	    else begin
+		tx_stp = 1'b1;
+		next_state = IDLE;
+	    end
         end 
 
         RX : begin 
-            rx = 1'b1;
-            if (bit_cnt == 10) begin
-                if (rxd_ff) begin 
-                    data_rdy = 1'b1;
-                    next_state = IDLE;
+            if (bit_cnt != 4'd10) begin
+		    rx = 1'b1;
                 end
                 else begin 
-                    start = 1'b1;
-                    next_state = RX;
-                end  
+		    data_rdy = 1'b1;
+                    next_state = IDLE;
+                  
             end 
         end 
 
